@@ -31,7 +31,7 @@ function Get-FilesWithGitIgnore {
     # Feldolgozza a fájlokat az aktuális mappában
     Get-ChildItem -Path $Dir -File | ForEach-Object {
         if (-not (IsIgnored $_ $ignorePatterns)) {
-            $files += $_.FullName
+            $files += $_.Name
         }
     }
 
@@ -44,6 +44,3 @@ function Get-FilesWithGitIgnore {
 
     return $files
 }
-
-# Függvény hívása
-Get-FilesWithGitIgnore
